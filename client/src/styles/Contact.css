@@ -1,0 +1,144 @@
+.contact {
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.5) 0%, rgba(5, 8, 18, 0.5) 100%);
+  position: relative;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.contact-info {
+  h3 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  > p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-method {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(0, 217, 255, 0.03);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--primary);
+    background: rgba(0, 217, 255, 0.1);
+    transform: translateX(10px);
+  }
+
+  svg {
+    font-size: 1.8rem;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+}
+
+.contact-form {
+  padding: 40px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 16px;
+  background: rgba(10, 14, 39, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  input,
+  textarea {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(0, 217, 255, 0.05);
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+    }
+
+    &::placeholder {
+      color: var(--text-secondary);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+}
+
+.btn[type='submit'] {
+  margin-top: 10px;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.success-message {
+  padding: 15px 20px;
+  background: rgba(6, 255, 165, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  text-align: center;
+  font-weight: 600;
+}

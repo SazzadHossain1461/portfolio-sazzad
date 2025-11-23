@@ -1,0 +1,296 @@
+/* ============ CUBE ANIMATIONS ============ */
+.cube-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 25s infinite linear;
+  filter: drop-shadow(0 0 40px rgba(0, 217, 255, 0.6));
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  border: 3px solid rgba(0, 217, 255, 0.8);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 217, 255, 0.05));
+  color: #00d9ff;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 20px rgba(0, 217, 255, 0.5),
+    inset 0 0 20px rgba(0, 217, 255, 0.1);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.cube-face:hover {
+  background: rgba(0, 217, 255, 0.3);
+  box-shadow: 
+    0 0 40px rgba(0, 217, 255, 0.8),
+    inset 0 0 30px rgba(0, 217, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.cube-face.front {
+  transform: translateZ(100px);
+}
+
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(100px);
+  border-color: rgba(255, 0, 110, 0.8);
+  color: #ff006e;
+  box-shadow: 
+    0 0 20px rgba(255, 0, 110, 0.5),
+    inset 0 0 20px rgba(255, 0, 110, 0.1);
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(100px);
+  border-color: rgba(255, 214, 10, 0.8);
+  color: #ffd60a;
+  box-shadow: 
+    0 0 20px rgba(255, 214, 10, 0.5),
+    inset 0 0 20px rgba(255, 214, 10, 0.1);
+}
+
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(100px);
+  border-color: rgba(6, 255, 165, 0.8);
+  color: #06ffa5;
+  box-shadow: 
+    0 0 20px rgba(6, 255, 165, 0.5),
+    inset 0 0 20px rgba(6, 255, 165, 0.1);
+}
+
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(100px);
+  border-color: rgba(0, 217, 255, 0.8);
+  color: #00d9ff;
+}
+
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+  border-color: rgba(255, 0, 110, 0.8);
+  color: #ff006e;
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* ============ SPHERE ANIMATIONS ============ */
+.sphere-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sphere {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.9), rgba(255, 0, 110, 0.4));
+  box-shadow: 
+    0 0 80px rgba(0, 217, 255, 0.8),
+    0 0 120px rgba(255, 0, 110, 0.6),
+    inset -40px -40px 80px rgba(0, 0, 0, 0.5),
+    inset 40px 40px 80px rgba(0, 217, 255, 0.2);
+  animation: rotateSphere 15s infinite linear;
+  position: relative;
+  filter: drop-shadow(0 0 60px rgba(0, 217, 255, 0.6));
+}
+
+.sphere::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent 30%, rgba(0, 217, 255, 0.3) 50%, transparent 70%);
+  animation: shine 4s infinite;
+}
+
+.sphere::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.sphere-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 60%, rgba(255, 0, 110, 0.5), transparent);
+}
+
+@keyframes rotateSphere {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ============ PARTICLES BACKGROUND ============ */
+.particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.7;
+  box-shadow: 
+    0 0 10px rgba(0, 217, 255, 1),
+    0 0 20px rgba(0, 217, 255, 0.8);
+  animation: float linear infinite;
+  animation-delay: var(--delay);
+  animation-duration: var(--duration);
+  filter: blur(0.5px);
+}
+
+.particle:nth-child(odd) {
+  background: var(--secondary);
+  box-shadow: 
+    0 0 10px rgba(255, 0, 110, 1),
+    0 0 20px rgba(255, 0, 110, 0.8);
+}
+
+.particle:nth-child(3n) {
+  background: var(--accent);
+  box-shadow: 
+    0 0 10px rgba(6, 255, 165, 1),
+    0 0 20px rgba(6, 255, 165, 0.8);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ============ ENHANCED GLOW EFFECTS ============ */
+.particle {
+  filter: drop-shadow(0 0 8px currentColor) blur(0.5px);
+}
+
+.particle::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .cube {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cube-face {
+    width: 150px;
+    height: 150px;
+    font-size: 18px;
+  }
+
+  .cube-face.front {
+    transform: translateZ(75px);
+  }
+
+  .cube-face.back {
+    transform: rotateY(180deg) translateZ(75px);
+  }
+
+  .cube-face.right {
+    transform: rotateY(90deg) translateZ(75px);
+  }
+
+  .cube-face.left {
+    transform: rotateY(-90deg) translateZ(75px);
+  }
+
+  .cube-face.top {
+    transform: rotateX(90deg) translateZ(75px);
+  }
+
+  .cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(75px);
+  }
+
+  .sphere {
+    width: 180px;
+    height: 180px;
+  }
+}
