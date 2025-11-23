@@ -22,6 +22,18 @@ function App() {
         setPortfolioData(data);
       } catch (error) {
         console.error('Error fetching portfolio data:', error);
+        // Set default data if API fails
+        setPortfolioData({
+          personalInfo: {
+            name: 'Sazzad Hossain',
+            title: 'Full Stack Developer | AI/ML Enthusiast',
+            email: 'Sazzadhossain74274@gmail.com',
+            phone: '+88 01983027130',
+            location: 'Dhaka-1213, Mohakhali',
+            github: 'SazzadHossain1461',
+            linkedin: 'sazzadhossain1461'
+          }
+        });
       } finally {
         setLoading(false);
       }
@@ -31,7 +43,12 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return (
+      <div className="loading">
+        <div className="spinner"></div>
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   return (
