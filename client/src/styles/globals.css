@@ -4,14 +4,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 :root {
   --primary: #00d9ff;
   --secondary: #ff006e;
@@ -28,8 +20,6 @@ html, body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  width: 100%;
-  height: 100%;
   font-size: 16px;
 }
 
@@ -53,8 +43,6 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  width: 100%;
-  height: 100%;
   position: relative;
 }
 
@@ -115,18 +103,10 @@ body::after {
   }
 }
 
-#root {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -171,15 +151,27 @@ body::after {
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
+  }
+
+  .section-title::before {
+    bottom: -15px;
+    width: 80px;
+    height: 3px;
   }
 }
 
 @media (max-width: 480px) {
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  .section-title::before {
+    bottom: -12px;
+    width: 60px;
+    height: 2px;
   }
 }
 
@@ -219,7 +211,6 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  white-space: nowrap;
 }
 
 .btn::before {
@@ -241,29 +232,38 @@ body::after {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--darker);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 217, 255, 0.5);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
 }
 
 .btn-secondary:hover {
   background: var(--primary);
   color: var(--darker);
-  box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 217, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
   .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 10px 16px;
+    font-size: 0.85rem;
     width: 100%;
   }
 }
@@ -274,9 +274,9 @@ body::after {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  gap: 20px;
   font-size: 1.5rem;
   color: var(--primary);
-  gap: 20px;
 }
 
 .spinner {
@@ -294,60 +294,30 @@ body::after {
   }
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+  background: var(--dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   border-radius: 10px;
-  border: 2px solid var(--dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
 }
 
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .btn {
-    padding: 14px 24px;
-    min-height: 44px;
-  }
-
-  .social-link {
-    min-width: 44px;
-    min-height: 44px;
-  }
-}
-
-/* Prevent zoom on input focus on mobile */
-@media (max-width: 768px) {
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-  }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* Mobile landscape adjustments */
-@media (max-height: 600px) and (orientation: landscape) {
+@media (max-width: 480px) {
   section {
-    min-height: auto;
-    padding: 40px 0;
+    padding: 40px 0 !important;
+  }
+
+  .glow {
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3),
+                0 0 25px rgba(0, 217, 255, 0.2);
   }
 }

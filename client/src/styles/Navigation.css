@@ -8,9 +8,6 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 217, 255, 0.1);
   padding: 1rem 0;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 .nav-container {
@@ -20,8 +17,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -34,6 +29,10 @@
   .nav-container {
     padding: 0 12px;
   }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
 }
 
 .nav-logo {
@@ -42,7 +41,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  flex-shrink: 0;
 }
 
 @media (max-width: 480px) {
@@ -63,12 +61,20 @@
   font-size: 2rem;
 }
 
+@media (max-width: 480px) {
+  .logo-dot {
+    font-size: 1.5rem;
+  }
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 2rem;
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .nav-menu {
     position: fixed;
     top: 60px;
     left: -100%;
@@ -78,22 +84,16 @@
     text-align: center;
     transition: 0.3s;
     padding: 2rem 0;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-    z-index: 999;
+    gap: 1rem;
+  }
 
-    &.active {
-      left: 0;
-    }
+  .nav-menu.active {
+    left: 0;
   }
 }
 
 .nav-item {
-  display: list-item;
-
-  @media (max-width: 768px) {
-    padding: 0.5rem 0;
-  }
+  list-style: none;
 }
 
 .nav-link {
@@ -102,32 +102,32 @@
   font-weight: 500;
   position: relative;
   transition: color 0.3s ease;
-  display: inline-block;
-  padding: 0.5rem 0;
+  font-size: 1rem;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    transition: width 0.3s ease;
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 0.95rem;
   }
+}
 
-  &:hover::after {
-    width: 100%;
-  }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transition: width 0.3s ease;
+}
 
-  &:hover {
-    color: var(--primary);
-  }
+.nav-link:hover::after {
+  width: 100%;
+}
 
-  @media (max-width: 768px) {
-    padding: 1rem 0;
-    font-size: 1.1rem;
-  }
+.nav-link:hover {
+  color: var(--primary);
 }
 
 .hamburger {
@@ -138,9 +138,25 @@
   border: none;
   color: var(--primary);
   font-size: 1.8rem;
-  z-index: 1001;
+  gap: 5px;
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .hamburger {
     display: flex;
   }
+}
+
+@media (max-width: 480px) {
+  .hamburger {
+    font-size: 1.5rem;
+  }
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: 0.3s;
 }
