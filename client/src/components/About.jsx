@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import '../styles/About.css';
 
 const About = ({ data }) => {
-  if (!data) return null;
+  if (!data) {
+    return null;
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -51,7 +53,7 @@ const About = ({ data }) => {
           <motion.div variants={itemVariants} className="education">
             <h3>Education</h3>
             <div className="education-list">
-              {data.education.map((edu, index) => (
+              {data.education && data.education.map((edu, index) => (
                 <motion.div
                   key={index}
                   className="education-item"

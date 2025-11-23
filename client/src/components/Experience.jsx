@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import '../styles/Experience.css';
 
 const Experience = ({ data }) => {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) {
+    return null;
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,7 +48,7 @@ const Experience = ({ data }) => {
         >
           {data.map((exp, index) => (
             <motion.div
-              key={exp.id}
+              key={exp.id || index}
               className={`experience-item ${index % 2 === 0 ? 'left' : 'right'}`}
               variants={itemVariants}
             >
