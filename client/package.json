@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "proxy": "http://localhost:5000",
+  "homepage": "https://portfolio-sazzad.vercel.app",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -10,8 +11,7 @@
     "react-scroll": "^1.9.0",
     "axios": "^1.7.2",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.3",
-    "ajv": "^8.12.0"
+    "react-router-dom": "^6.22.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,7 +27,6 @@
     "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "devDependencies": {
-    "react-scripts": "5.0.1",
-    "ajv": "^8.12.0"
+    "react-scripts": "5.0.1"
   }
 }
