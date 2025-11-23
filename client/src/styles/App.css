@@ -1,8 +1,8 @@
 .app-container {
   position: relative;
   min-height: 100vh;
+  width: 100%;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #0a0e27 0%, #050812 100%);
 }
 
 .particle-background {
@@ -17,6 +17,7 @@
 .main-content {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 section {
@@ -25,8 +26,30 @@ section {
   align-items: center;
   justify-content: center;
   padding: 60px 0;
+  width: 100%;
+  box-sizing: border-box;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  section {
+    min-height: auto;
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 30px 0;
+    min-height: auto;
+  }
 }
 
 section::before {
