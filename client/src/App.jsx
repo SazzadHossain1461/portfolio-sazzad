@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -134,6 +135,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <SpeedInsights />
       <ParticleBackground />
       <Navigation />
       <main className="main-content">
